@@ -1,0 +1,15 @@
+Analyse le ticket ci-dessous selon les instructions du context.txt.
+
+Sujet :
+{{sujet}}
+
+Contenu :
+{{contenu}}
+
+Retourne strictement ce JSON :
+
+{
+  "categorie": "",
+  "urgence": "",
+  "synthese": ""
+}

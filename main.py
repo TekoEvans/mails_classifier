@@ -29,7 +29,7 @@ def decode_message(payload):
     return ""
 
 
-def main():
+def get_mails():
     creds = None
     sms = []
 
@@ -55,7 +55,7 @@ def main():
             print("No messages found.")
             return
 
-        print("Messages:")
+        # print("Messages:")
         for message in messages:
             msg = service.users().messages().get(userId="me", id=message["id"], format="full").execute()
 
@@ -63,14 +63,21 @@ def main():
             text = decode_message(payload)
 
             sms.append(text)
-
-            print("\n====================")
-            print(f"Message ID: {message['id']}")
-            print(text)
+        return sms
+            # print("\n====================")
+            # print(f"Message ID: {message['id']}")
+            # print(text)
 
     except HttpError as error:
         print(f"An error occurred: {error}")
+        
+def read_file_text(file_path):
+    
+    with open(file_path, "r", encoding="utf-8") as f:
+        return f.read()
 
 
 if __name__ == "__main__":
-    main()
+     messages = get_mails()
+     for message in messages:
+         print(message)
