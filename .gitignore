@@ -141,6 +141,7 @@ celerybeat.pid
 env/
 venv/
 ENV/
+ai_agent_env/
 env.bak/
 venv.bak/
 
@@ -157,6 +158,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 .dmypy.json
+*.json
 dmypy.json
 
 # Pyre type checker
